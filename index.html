@@ -110,7 +110,7 @@ const TAG_RE=/#[\p{L}\d_]+/gu;
 function parse(text){
   const secs=[];let cur=null;
   for(const raw of text.split(/\r?\n/)){
-    const l=raw.trim(); if(!l) continue;
+    const l=raw.trim().replace(/^\d+[.)]\s+/,""); if(!l) continue;
     const m=l.match(URL_RE);
     if(!m){ if(l.length<80&&!/^[*•]/.test(l)){cur={name:l,items:[]};secs.push(cur);} continue; }
     if(!cur){cur={name:"Bez sekcji",items:[]};secs.push(cur);}
