@@ -31,7 +31,7 @@ h2{font-size:1.5rem;line-height:1.2;font-weight:700;letter-spacing:-.01em;margin
 .b{font:11px system-ui,sans-serif;font-weight:700;padding:2px 7px;border-radius:5px;letter-spacing:.04em}
 .b.p{background:var(--accbg);color:var(--acc)}.b.n{background:var(--newbg);color:var(--new)}
 .d{margin:6px 0 0;color:var(--ink);font-size:.95rem;overflow-wrap:anywhere}
-.d a{color:var(--ink)}.d a:hover{color:var(--yelink)}
+.d a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}.d a:hover{color:var(--yelink)}
 .tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
 .tag{font:12px system-ui,sans-serif;color:var(--mut);cursor:pointer}.tag:hover{color:var(--acc)}
 details{margin-top:34px;font:14px system-ui,sans-serif;color:var(--mut)}
@@ -62,9 +62,11 @@ h1,h2,.card a.t,.tile .tt,.chip,.lbl,.count,.sub,.dom,.b,.seg button,input[type=
 .tile .tt{font-weight:700;font-size:1rem;color:var(--ink);text-decoration:none}.tile .tt:hover{color:var(--yelink)}
 .tile .dom{margin-top:2px}
 .tile .d{font-size:.88rem;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.info{font:14px/1.5 var(--sans);color:var(--mut);margin:0 0 16px}.info>span+span::before{content:"·";margin:0 .6em}.info a{color:var(--ink)}
 </style></head>
 <body><main>
 <h1>Repozytorium i bibliografia</h1>
+<p class="info"><span>baza wiedzy projektowej Katedry Metodyki Projektowania WFP ASP w Krakowie</span><span>opracowanie: Piotr Hojda</span><span>pytania, uwagi, sugestie, zażalenia prosimy kierować na adres: <a href="mailto:phojda@asp.krakow.pl">phojda@asp.krakow.pl</a></span><span>niektóre linki, dodane kilka lat temu, mogą być już nieaktualne</span><span id="upd" hidden>ostatnia aktualizacja: <span id="updd"></span></span></p>
 <p class="sub" id="status">Wczytuję…</p>
 <input type="search" id="q" placeholder="Szukaj w tytułach, opisach, tagach…" aria-label="Szukaj">
 <div class="lbl">Sekcje</div><div class="row" id="secs"></div>
@@ -107,7 +109,18 @@ NOWY!    P!!! The Soft Serve Studio Forecast 2025 / https://www.softservestudio.
 
 const URL_RE=/https?:\/\/[^\s]+/;
 const TAG_RE=/#[\p{L}\d_]+/gu;
+const MON={sty:1,lut:2,mar:3,kwi:4,maj:5,cze:6,lip:7,sie:8,wrz:9,"paź":10,lis:11,gru:12};
+function setUpdated(t){
+  const m=t.match(/ostatnia aktualizacja:\s*(\d{1,2})\s+([^\s\d]+)\s+(\d{4})/i);
+  const mo=m&&MON[m[2].slice(0,3).toLowerCase()];
+  if(!mo)return;
+  $("updd").textContent=m[1].padStart(2,"0")+"."+String(mo).padStart(2,"0")+"."+m[3];
+  $("upd").hidden=false;
+}
 function parse(text){
+  {const L=text.split(/\r?\n/);let k=L.findIndex(x=>/^_{3,}$/.test(x.trim()));if(k<0)k=L.findIndex(x=>/^[—–―]+$/.test(x.trim()));
+   setUpdated(k>=0?L.slice(0,k).join("\n"):text);
+   if(k>=0)text=L.slice(k+1).join("\n");}
   const secs=[];let cur=null;
   for(const raw of text.split(/\r?\n/)){
     const l=raw.trim().replace(/^\d+[.)]\s+/,""); if(!l) continue;
