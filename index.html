@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Repozytorium i bibliografia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#faf8f4;--card:#fff;--ink:#1d1b18;--mut:#6b665e;--line:#e4dfd5;--acc:#c2410c;--accbg:#fdeee4;--new:#0f766e;--newbg:#dff5f2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16140f;--card:#201d17;--ink:#f1ede4;--mut:#a39d90;--line:#35302600;--line:#363126;--acc:#fb923c;--accbg:#3a2412;--new:#5eead4;--newbg:#12322e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16140f;--card:#201d17;--ink:#f1ede4;--mut:#a39d90;--line:#363126;--acc:#fb923c;--accbg:#3a2412;--new:#5eead4;--newbg:#12322e;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Georgia,"Times New Roman",serif}
+main{max-width:860px;margin:0 auto;padding:28px 18px 60px}
+h1{font-size:1.7rem;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--mut);font:14px/1.4 system-ui,sans-serif;margin:0 0 20px}
+.ui{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+input[type=search]{width:100%;padding:12px 14px;font:16px system-ui,sans-serif;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.chip{font:13px system-ui,sans-serif;padding:5px 11px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lbl{font:12px system-ui,sans-serif;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;margin:16px 0 0}
+.count{font:13px system-ui,sans-serif;color:var(--mut);margin:22px 0 10px}
+h2{font-size:1.05rem;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 10px}
+.card.pol{border-left:4px solid var(--acc)}
+.top{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.card a.t{font-weight:700;color:var(--ink);text-decoration:none;font-size:1.02rem}
+.card a.t:hover{text-decoration:underline;color:var(--acc)}
+.dom{font:12px system-ui,sans-serif;color:var(--mut)}
+.b{font:11px system-ui,sans-serif;font-weight:700;padding:2px 7px;border-radius:5px;letter-spacing:.04em}
+.b.p{background:var(--accbg);color:var(--acc)}.b.n{background:var(--newbg);color:var(--new)}
+.d{margin:6px 0 0;color:var(--ink);font-size:.95rem;overflow-wrap:anywhere}
+.d a{color:var(--acc)}
+.tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font:12px system-ui,sans-serif;color:var(--mut);cursor:pointer}.tag:hover{color:var(--acc)}
+details{margin-top:34px;font:14px system-ui,sans-serif;color:var(--mut)}
+textarea{width:100%;height:140px;margin-top:8px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:13px ui-monospace,monospace}
+button.go{margin-top:8px;padding:8px 14px;border-radius:8px;border:0;background:var(--ink);color:var(--bg);font:14px system-ui,sans-serif;cursor:pointer}
+mark{background:var(--accbg);color:inherit;border-radius:3px}
+:root{--yel:#ffd60a;--yelbg:rgba(255,214,10,.2);--yelink:#8a6d00;--sans:"Work Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--yelink:#ffd60a}}
+:root[data-theme="dark"]{--yelink:#ffd60a}
+h1,h2,.card a.t,.tile .tt,.chip,.lbl,.count,.sub,.dom,.b,.seg button,input[type=search]{font-family:var(--sans)}
+.tag,textarea{font-family:var(--mono)}
+.tag:hover,.card a.t:hover{color:var(--yelink)}
+.card.pol{border:1px solid rgba(255,214,10,.6);background:linear-gradient(var(--yelbg),var(--yelbg)),var(--card)}
+.b.p{background:var(--yel);color:#1d1b18}
+.chip[data-f=pol].on{background:var(--yel);border-color:var(--yel);color:#1d1b18}
+.viewbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:22px 0 10px}.viewbar .count{margin:0}
+.seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--card)}
+.seg button{font-size:13px;padding:6px 12px;border:0;background:none;color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.tile.pol{border-color:rgba(255,214,10,.6);background:linear-gradient(var(--yelbg),var(--yelbg)),var(--card)}
+.shot{position:relative;display:block;aspect-ratio:16/10;overflow:hidden}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 2.6rem var(--sans);color:var(--mut)}
+.bw{position:absolute;top:8px;left:8px;display:flex;gap:6px;z-index:1}
+.tile .in{padding:12px 14px 14px;display:flex;flex-direction:column;flex:1}
+.tile .tt{font-weight:700;font-size:1rem;color:var(--ink);text-decoration:none}.tile .tt:hover{color:var(--yelink)}
+.tile .dom{margin-top:2px}
+.tile .d{font-size:.88rem;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+</style></head>
+<body><main>
+<h1>Repozytorium i bibliografia</h1>
+<p class="sub" id="status">Wczytuję…</p>
+<input type="search" id="q" placeholder="Szukaj w tytułach, opisach, tagach…" aria-label="Szukaj">
+<div class="lbl">Sekcje</div><div class="row" id="secs"></div>
+<div class="lbl">Tagi</div><div class="row" id="tags"></div>
+<div class="row" id="flags"></div>
+<div class="viewbar"><div class="count" id="count"></div><div class="seg" role="group" aria-label="Widok"><button data-view="list" class="on">☰ Lista</button><button data-view="tiles">▦ Kafelki</button></div></div>
+<div id="out"></div>
+<details><summary>Wczytaj własne dane (wklej treść dokumentu)</summary>
+<textarea id="paste" placeholder="Wklej cały tekst dokumentu…"></textarea>
+<button class="go" id="load">Pokaż</button></details>
+</main>
+<script>
+// Gdy ustawisz adres (np. Google Apps Script zwracający tekst dokumentu), strona pobierze dane na żywo.
+const DATA_URL = "https://script.google.com/macros/s/AKfycbzj0VQnTs2iKVmlg4DU5NjuRCB0hUcDQanC8T2mpxu6LBOJjFqXtJSmCdSMqLPBB9EmyQ/exec";
+// Podglądy stron w kafelkach: zrzut ekranu z zewnętrznej usługi. Działa na własnym hostingu (nie w podglądzie Claude).
+const PREVIEW = "https://api.microlink.io/?url={url}&screenshot=true&meta=false&embed=screenshot.url";
+const SAMPLE = `Trendy / forecasting
+
+P!!! /  HATALSKA / http://hatalska.com – Natalia Hatalska, trendsetterka (mniej znana niż Zuzanna Skalska). Jej blog jest kopalnią (darmowej) wiedzy o tym co świeże, aktualne, lub pączkujące gdzieś za rogiem. Warto śledzić. #research #trendy #lifestyle #marketing
+Hatalska Trendbook 2017 / http://hatalska.com/wp-content/uploads/2017/03/Trendbook2017.pdf
+P!!! /  John Maeda Design in Tech Report !!! / https://designintech.report  – must-see coroczny
+WIRED Next List 2017 / https://www.wired.com/2017/04/20-people-creating-future-next-list-2017/?mbid=nl_42517_p1&CNDID= – Next List 2017: 20 People Who Are Creating the Future
+99u / The Creative Future Report 2019 / https://99u.adobe.com/articles/63300/the-creative-future-report – We asked more than 3,600 creatives what excites them, what scares them, and what they need in order to do their best work. Here's what we found. #trendy #raport
+Interbrand Best Global Brands 2019 / https://www.interbrand.com/wp-content/uploads/2019/10/Interbrand_Best_Global_Brands_2019.pdf – 100 najlepszych brandów 2019 według Interbrand #trendy #branding
+Hubraum trends / https://hubraumtrends.com/ – Our work is based on a participatory method in which solutions of the future arise from the moderated debate and creative work of interdisciplinary teams. The framework is based on future(s) & design thinking techniques as well as self-created trends bases and cards. #trendy
+P!!! TREND ONE / https://www.trendone.com/en.html – As the market leader for trend research, we work in interdisciplinary teams made up of trend scouts, industry insiders, visionary thinkers and people with foresight. #trendy komercyjna niemiecka firma, ale udostępnia całkiem sporo informacji / hubraum pracuje na megatrendach TrendOne
+Trendy google / https://trends.google.com/trends/?geo=US – Dowiedz się czego szukają w internecie ludzie z całego świata.
+HP Megatrends / https://hpmegatrends.com – Exploring the social shifts and technological forces impacting our future. #trendy
+KPMG megatrends / https://home.kpmg/xx/en/home/insights/2013/10/what-are-the-global-megatrends.html – trochę stare, ale…
+Trendwatching.com / https://trendwatching.com – Founded in 2002, our teams in London, New York and Singapore help B2C professionals in 180+ countries unlock powerful new answers to the biggest question in business: “what will my customers want next?”
+Copenhagen Institute for Future Studies / https://cifs.dk – CIFS is an independent and non-profit global advisory and research organisation.
+Sitra Megatrend Cards / https://www.sitra.fi/en/publications/megatrend-cards/ – With the help of trend cards, one can make one’s own thoughts nimbler and stretch them further while creating new ideas and visions about the possible future.
+P!!!  Frog Tech Trends 2020 / https://www.frogdesign.com/trends2020 – The Age of the Senses. As we enter the 20s, we ask ourselves: What will this new decade bring?
+Digital Trends / https://www.digitaltrends.com – portal newsowy z bieżącymi informacjami ze świata technologii
+Hatalska Infuture Institute / Mapa Trendów 2020 / http://infuture.institute/raporty/mapa-trendow-2020/ – Mapa prezentuje najważniejsze 54 trendy w podziale na ich poziom dojrzałości oraz 5 kategorii.
+P!!! Future Today Institute / https://futuretodayinstitute.com – Our annual tech trends report is designed to help you think about next-order outcomes in an uncertain world.
+Trend reports / https://drive.google.com/drive/folders/1f7jN70nG8gU1-L_cCJg8rbuj7UDZv62X – zbiór kilkudziesięciu PDF-ów zbierających rozmaite trendy na 2023 i dalej, w jednym folderze google.
+NOWY!    P!!! iF Design Trend Report 2026 / https://ifdesign.com/iF-Design-Trend-Report-2026.pdf – doroczny raport przygotowywany przez iF, dobrze ustrukturyzowany, podzielony na tematy, z aktualnymi i inspirującymi przykładami.
+NOWY!    P!!! The Soft Serve Studio Forecast 2025 / https://www.softservestudio.com/soft-serve-journal/forecast2025 – zbiór trendów, przykładów i moodboardów związanych z projektowaniem soft goods (plecaki, torby itp.). Są też wcześniejsze edycje. soft trends`;
+
+const URL_RE=/https?:\/\/[^\s]+/;
+const TAG_RE=/#[\p{L}\d_]+/gu;
+function parse(text){
+  const secs=[];let cur=null;
+  for(const raw of text.split(/\r?\n/)){
+    const l=raw.trim(); if(!l) continue;
+    const m=l.match(URL_RE);
+    if(!m){ if(l.length<80&&!/^[*•]/.test(l)){cur={name:l,items:[]};secs.push(cur);} continue; }
+    if(!cur){cur={name:"Bez sekcji",items:[]};secs.push(cur);}
+    let pre=l.slice(0,m.index),post=l.slice(m.index+m[0].length),nowy=false,pol=false;
+    pre=pre.replace(/\bNOWY!/g,()=>{nowy=true;return""}).replace(/\bP!!!/g,()=>{pol=true;return""});
+    pre=pre.replace(/^[\s\/]+|[\s\/]+$/g,"").replace(/\s*!!!\s*$/,"").trim();
+    const tags=[...post.matchAll(TAG_RE)].map(x=>x[0].slice(1).toLowerCase());
+    const desc=post.replace(TAG_RE,"").replace(/^\s*[–—-]\s*/,"").replace(/\s+/g," ").trim();
+    cur.items.push({title:pre||m[0],url:m[0],desc,tags,nowy,pol,section:cur.name});
+  }
+  return secs.filter(s=>s.items.length);
+}
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let secs=[],S={q:"",sec:"",tag:"",pol:false,nowy:false,view:"list"};
+function host(u){try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return""}}
+function hl(s){
+  let h=esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+  const q=S.q.trim(); if(q.length>1){const r=new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")(?![^<]*>)","gi");h=h.replace(r,"<mark>$1</mark>")}
+  return h;
+}
+function hue(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h}
+function tile(i){
+  const d=host(i.url),img=PREVIEW?PREVIEW.replace("{url}",encodeURIComponent(i.url)):"";
+  return `<article class="tile ${i.pol?"pol":""}"><a class="shot" href="${esc(i.url)}" target="_blank" rel="noopener" aria-label="${esc(i.title)}" style="background:hsl(${hue(d)} 45% 55% / .22)"><span class="ph">${esc((d[0]||"•").toUpperCase())}</span>${img?`<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span class="bw">${i.nowy?'<span class="b n">NOWE</span>':""}${i.pol?'<span class="b p">★ POLECANE</span>':""}</span></a>
+    <div class="in"><a class="tt" href="${esc(i.url)}" target="_blank" rel="noopener">${hl(i.title)}</a><span class="dom">${esc(d)}</span>${i.desc?`<p class="d">${hl(i.desc)}</p>`:""}${i.tags.length?`<div class="tags">${i.tags.map(t=>`<span class="tag" data-t="${esc(t)}">#${esc(t)}</span>`).join("")}</div>`:""}</div></article>`;
+}
+function chips(el,list,key,all){
+  el.innerHTML=[`<button class="chip ${S[key]?"":"on"}" data-k="${key}" data-v="">${all}</button>`]
+    .concat(list.map(([v,n])=>`<button class="chip ${S[key]===v?"on":""}" data-k="${key}" data-v="${esc(v)}">${esc(key==="tag"?"#"+v:v)} · ${n}</button>`)).join("");
+}
+function render(){
+  const all=secs.flatMap(s=>s.items);
+  const tc={};all.forEach(i=>i.tags.forEach(t=>tc[t]=(tc[t]||0)+1));
+  chips($("secs"),secs.map(s=>[s.name,s.items.length]),"sec","Wszystkie");
+  chips($("tags"),Object.entries(tc).sort((a,b)=>b[1]-a[1]).slice(0,14),"tag","Wszystkie");
+  $("flags").innerHTML=`<button class="chip ${S.pol?"on":""}" data-f="pol">★ Polecane</button><button class="chip ${S.nowy?"on":""}" data-f="nowy">Nowe</button>`;
+  const q=S.q.trim().toLowerCase();
+  let n=0,html="";
+  for(const s of secs){
+    if(S.sec&&s.name!==S.sec)continue;
+    const its=s.items.filter(i=>(!S.pol||i.pol)&&(!S.nowy||i.nowy)&&(!S.tag||i.tags.includes(S.tag))&&(!q||(i.title+" "+i.desc+" "+i.tags.join(" ")+" "+host(i.url)).toLowerCase().includes(q)));
+    if(!its.length)continue; n+=its.length;
+    const cards=its.map(i=>S.view==="tiles"?tile(i):`<article class="card ${i.pol?"pol":""}"><div class="top">
+      ${i.nowy?'<span class="b n">NOWE</span>':""}${i.pol?'<span class="b p">★ POLECANE</span>':""}
+      <a class="t" href="${esc(i.url)}" target="_blank" rel="noopener">${hl(i.title)}</a><span class="dom">${esc(host(i.url))}</span></div>
+      ${i.desc?`<p class="d">${hl(i.desc)}</p>`:""}
+      ${i.tags.length?`<div class="tags">${i.tags.map(t=>`<span class="tag" data-t="${esc(t)}">#${esc(t)}</span>`).join("")}</div>`:""}</article>`).join("");
+    html+=`<h2>${esc(s.name)}</h2>`+(S.view==="tiles"?`<div class="grid">${cards}</div>`:cards);
+  }
+  $("count").textContent=n?`Pozycji: ${n} z ${all.length}`:"Brak wyników.";
+  $("out").innerHTML=html;
+}
+document.addEventListener("click",e=>{
+  const c=e.target.closest(".chip"),t=e.target.closest(".tag");
+  if(c){ if(c.dataset.f)S[c.dataset.f]=!S[c.dataset.f]; else S[c.dataset.k]=S[c.dataset.k]===c.dataset.v?"":c.dataset.v; render(); }
+  else if(t){S.tag=t.dataset.t;render();scrollTo({top:0,behavior:"smooth"})}
+});
+$("q").addEventListener("input",e=>{S.q=e.target.value;render()});
+document.querySelector(".seg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.view=b.dataset.view;document.querySelectorAll(".seg button").forEach(x=>x.classList.toggle("on",x===b));render()});
+document.addEventListener("error",e=>{if(e.target.tagName==="IMG")e.target.remove()},true);
+$("load").onclick=()=>{const v=$("paste").value;if(v.trim()){secs=parse(v);$("status").textContent="Dane wklejone ręcznie.";render()}};
+async function init(){
+  if(!DATA_URL){secs=parse(SAMPLE);}$("status").textContent=DATA_URL?"Ładuję dane z dokumentu…":"Podgląd na próbce danych (sekcja „Trendy / forecasting”).";
+  render();
+  if(DATA_URL){
+    try{const r=await fetch(DATA_URL);const t=await r.text();const p=parse(t);
+      if(p.length){secs=p;$("status").textContent="Dane na żywo z dokumentu.";render()}}
+    catch(e){secs=parse(SAMPLE);render();$("status").textContent="Nie udało się pobrać danych na żywo – pokazuję próbkę."}
+  }
+}
+init();
+</script></body></html>
