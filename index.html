@@ -138,7 +138,7 @@ function parse(text){
 }
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let secs=[],S={q:"",sec:"",tag:"",pol:false,nowy:false,view:"list"};
+let secs=[],S={q:"",sec:"",tag:"",pol:false,nowy:false,view:"list",allTags:false};
 function host(u){try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return""}}
 function hl(s){
   let h=esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
