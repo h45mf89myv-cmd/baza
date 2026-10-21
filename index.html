@@ -108,7 +108,7 @@ NOWY!    P!!! iF Design Trend Report 2026 / https://ifdesign.com/iF-Design-Trend
 NOWY!    P!!! The Soft Serve Studio Forecast 2025 / https://www.softservestudio.com/soft-serve-journal/forecast2025 – zbiór trendów, przykładów i moodboardów związanych z projektowaniem soft goods (plecaki, torby itp.). Są też wcześniejsze edycje. soft trends`;
 
 const URL_RE=/https?:\/\/[^\s]+/;
-const TAG_RE=/#[\p{L}\d_]+/gu;
+const TAG_RE=/#[\p{L}\d_]+(?:-[\p{L}\d_]+)*/gu;
 const MON={sty:1,lut:2,mar:3,kwi:4,maj:5,cze:6,lip:7,sie:8,wrz:9,"paź":10,lis:11,gru:12};
 function setUpdated(t){
   const m=t.match(/ostatnia aktualizacja:\s*(\d{1,2})\s+([^\s\d]+)\s+(\d{4})/i);
