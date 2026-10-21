@@ -159,7 +159,7 @@ function render(){
   const all=secs.flatMap(s=>s.items);
   const tc={};all.forEach(i=>i.tags.forEach(t=>tc[t]=(tc[t]||0)+1));
   chips($("secs"),secs.map(s=>[s.name,s.items.length]),"sec","Wszystkie");
-  chips($("tags"),Object.entries(tc).sort((a,b)=>b[1]-a[1]).slice(0,14),"tag","Wszystkie");
+  chips($("tags"),Object.entries(tc).sort((a,b)=>a[0].localeCompare(b[0],"pl")),"tag","Wszystkie");
   $("flags").innerHTML=`<button class="chip ${S.pol?"on":""}" data-f="pol">★ Polecane</button><button class="chip ${S.nowy?"on":""}" data-f="nowy">Nowe</button>`;
   const q=S.q.trim().toLowerCase();
   let n=0,html="";
