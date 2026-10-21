@@ -159,7 +159,10 @@ function render(){
   const all=secs.flatMap(s=>s.items);
   const tc={};all.forEach(i=>i.tags.forEach(t=>tc[t]=(tc[t]||0)+1));
   chips($("secs"),secs.map(s=>[s.name,s.items.length]),"sec","Wszystkie");
-  chips($("tags"),Object.entries(tc).sort((a,b)=>a[0].localeCompare(b[0],"pl")),"tag","Wszystkie");
+  const LIM=30,te=Object.entries(tc);let shown=te;
+  if(!S.allTags&&te.length>LIM){const top=new Set(te.slice().sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"pl")).slice(0,LIM).map(x=>x[0]));if(S.tag)top.add(S.tag);shown=te.filter(x=>top.has(x[0]))}
+  chips($("tags"),shown.sort((a,b)=>a[0].localeCompare(b[0],"pl")),"tag","Wszystkie");
+  if(te.length>LIM)$("tags").insertAdjacentHTML("beforeend",`<button class="chip more" data-more="1">${S.allTags?"Pokaż mniej":"Pokaż wszystkie ("+te.length+")"}</button>`);
   $("flags").innerHTML=`<button class="chip ${S.pol?"on":""}" data-f="pol">★ Polecane</button><button class="chip ${S.nowy?"on":""}" data-f="nowy">Nowe</button>`;
   const q=S.q.trim().toLowerCase();
   let n=0,html="";
