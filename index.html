@@ -182,7 +182,7 @@ function render(){
 }
 document.addEventListener("click",e=>{
   const c=e.target.closest(".chip"),t=e.target.closest(".tag");
-  if(c){ if(c.dataset.f)S[c.dataset.f]=!S[c.dataset.f]; else S[c.dataset.k]=S[c.dataset.k]===c.dataset.v?"":c.dataset.v; render(); }
+    if(c){ if(c.dataset.more)S.allTags=!S.allTags; else if(c.dataset.f)S[c.dataset.f]=!S[c.dataset.f]; else S[c.dataset.k]=S[c.dataset.k]===c.dataset.v?"":c.dataset.v; render(); }
   else if(t){S.tag=t.dataset.t;render();scrollTo({top:0,behavior:"smooth"})}
 });
 $("q").addEventListener("input",e=>{S.q=e.target.value;render()});
