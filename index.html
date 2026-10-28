@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>baza wiedzy projektowej</title>
+<title>Repozytorium i bibliografia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -66,8 +66,9 @@ h1,h2,.card a.t,.tile .tt,.chip,.lbl,.count,.sub,.dom,.b,.seg button,input[type=
 .chip.more{border-style:dashed;color:var(--mut)}
 </style></head>
 <body><main>
-<h1>baza wiedzy projektowej</h1>
-<p class="info"><span><p class="info"><span><a href="https://bazawiedzykmp.asp.krakow.pl" target="_blank" rel="noopener">bazawiedzykmp.asp.krakow.pl</a></p>baza wiedzy projektowej Katedry Metodyki Projektowania WFP ASP w Krakowie</span><span>pytania, uwagi, sugestie, zażalenia prosimy kierować na adres: <a href="mailto:phojda@asp.krakow.pl">phojda@asp.krakow.pl</a></span><span>niektóre linki, dodane kilka lat temu, mogą być już nieaktualne</span><span id="upd" hidden>2015 — ostatnia aktualizacja: <span id="updd"></span></span></p>
+<h1>Repozytorium i bibliografia</h1>
+<p class="info"><span>baza wiedzy projektowej Katedry Metodyki Projektowania WFP ASP w Krakowie</span><span></span><span>pytania, uwagi, sugestie, zażalenia prosimy kierować na adres: <a href="mailto:phojda@asp.krakow.pl">phojda@asp.krakow.pl</a></span><span>niektóre linki, dodane kilka lat temu, mogą być już nieaktualne</span><span id="upd" hidden>2015 — ostatnia aktualizacja: <span id="updd"></span></span></p>
+<p class="info"><span>baza wiedzy projektowej Katedry Metodyki Projektowania WFP ASP w Krakowie</span><span>pytania, uwagi, sugestie, zażalenia prosimy kierować na adres: <a href="mailto:phojda@asp.krakow.pl">phojda@asp.krakow.pl</a></span><span>niektóre linki, dodane kilka lat temu, mogą być już nieaktualne</span><span id="upd" hidden>2015 — ostatnia aktualizacja: <span id="updd"></span></span></p>
 <p class="sub" id="status">Wczytuję…</p>
 <input type="search" id="q" placeholder="Szukaj w tytułach, opisach, tagach…" aria-label="Szukaj">
 <div class="lbl">Sekcje</div><div class="row" id="secs"></div>
@@ -112,92 +113,92 @@ const URL_RE=/https?:\/\/[^\s]+/;
 const TAG_RE=/#[\p{L}\d_]+(?:-[\p{L}\d_]+)*/gu;
 const MON={sty:1,lut:2,mar:3,kwi:4,maj:5,cze:6,lip:7,sie:8,wrz:9,"paź":10,lis:11,gru:12};
 function setUpdated(t){
-  const m=t.match(/ostatnia aktualizacja:\s*(\d{1,2})\s+([^\s\d]+)\s+(\d{4})/i);
-  const mo=m&&MON[m[2].slice(0,3).toLowerCase()];
-  if(!mo)return;
-  $("updd").textContent=m[1].padStart(2,"0")+"."+String(mo).padStart(2,"0")+"."+m[3];
-  $("upd").hidden=false;
+const m=t.match(/ostatnia aktualizacja:\s*(\d{1,2})\s+([^\s\d]+)\s+(\d{4})/i);
+const mo=m&&MON[m[2].slice(0,3).toLowerCase()];
+if(!mo)return;
+$("updd").textContent=m[1].padStart(2,"0")+"."+String(mo).padStart(2,"0")+"."+m[3];
+$("upd").hidden=false;
 }
 function parse(text){
-  {const L=text.split(/\r?\n/);let k=L.findIndex(x=>/^_{3,}$/.test(x.trim()));if(k<0)k=L.findIndex(x=>/^[—–―]+$/.test(x.trim()));
-   setUpdated(k>=0?L.slice(0,k).join("\n"):text);
-   if(k>=0)text=L.slice(k+1).join("\n");}
-  const secs=[];let cur=null;
-  for(const raw of text.split(/\r?\n/)){
-    const l=raw.trim().replace(/^\d+[.)]\s+/,""); if(!l) continue;
-    const m=l.match(URL_RE);
-    if(!m){ if(l.length<80&&!/^[*•]/.test(l)){cur={name:l,items:[]};secs.push(cur);} continue; }
-    if(!cur){cur={name:"Bez sekcji",items:[]};secs.push(cur);}
-    let pre=l.slice(0,m.index),post=l.slice(m.index+m[0].length),nowy=false,pol=false;
-    pre=pre.replace(/\bNOWY!/g,()=>{nowy=true;return""}).replace(/\bP!!!/g,()=>{pol=true;return""});
-    pre=pre.replace(/^[\s\/]+|[\s\/]+$/g,"").replace(/\s*!!!\s*$/,"").trim();
-    const tags=[...post.matchAll(TAG_RE)].map(x=>x[0].slice(1).toLowerCase());
-    const desc=post.replace(TAG_RE,"").replace(/^\s*[–—-]\s*/,"").replace(/\s+/g," ").trim();
-    cur.items.push({title:pre||m[0],url:m[0],desc,tags,nowy,pol,section:cur.name});
-  }
-  return secs.filter(s=>s.items.length);
+{const L=text.split(/\r?\n/);let k=L.findIndex(x=>/^_{3,}$/.test(x.trim()));if(k<0)k=L.findIndex(x=>/^[—–―]+$/.test(x.trim()));
+setUpdated(k>=0?L.slice(0,k).join("\n"):text);
+if(k>=0)text=L.slice(k+1).join("\n");}
+const secs=[];let cur=null;
+for(const raw of text.split(/\r?\n/)){
+const l=raw.trim().replace(/^\d+[.)]\s+/,""); if(!l) continue;
+const m=l.match(URL_RE);
+if(!m){ if(l.length<80&&!/^[*•]/.test(l)){cur={name:l,items:[]};secs.push(cur);} continue; }
+if(!cur){cur={name:"Bez sekcji",items:[]};secs.push(cur);}
+let pre=l.slice(0,m.index),post=l.slice(m.index+m[0].length),nowy=false,pol=false;
+pre=pre.replace(/\bNOWY!/g,()=>{nowy=true;return""}).replace(/\bP!!!/g,()=>{pol=true;return""});
+pre=pre.replace(/^[\s\/]+|[\s\/]+$/g,"").replace(/\s*!!!\s*$/,"").trim();
+const tags=[...post.matchAll(TAG_RE)].map(x=>x[0].slice(1).toLowerCase());
+const desc=post.replace(TAG_RE,"").replace(/^\s*[–—-]\s*/,"").replace(/\s+/g," ").trim();
+cur.items.push({title:pre||m[0],url:m[0],desc,tags,nowy,pol,section:cur.name});
+}
+return secs.filter(s=>s.items.length);
 }
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 let secs=[],S={q:"",sec:"",tag:"",pol:false,nowy:false,view:"list",allTags:false};
 function host(u){try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return""}}
 function hl(s){
-  let h=esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
-  const q=S.q.trim(); if(q.length>1){const r=new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")(?![^<]*>)","gi");h=h.replace(r,"<mark>$1</mark>")}
-  return h;
+let h=esc(s).replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+const q=S.q.trim(); if(q.length>1){const r=new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")(?![^<]*>)","gi");h=h.replace(r,"<mark>$1</mark>")}
+return h;
 }
 function hue(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h}
 function tile(i){
-  const d=host(i.url),img=PREVIEW?PREVIEW.replace("{url}",encodeURIComponent(i.url)):"";
-  return `<article class="tile ${i.pol?"pol":""}"><a class="shot" href="${esc(i.url)}" target="_blank" rel="noopener" aria-label="${esc(i.title)}" style="background:hsl(${hue(d)} 45% 55% / .22)"><span class="ph">${esc((d[0]||"•").toUpperCase())}</span>${img?`<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span class="bw">${i.nowy?'<span class="b n">NOWE</span>':""}${i.pol?'<span class="b p">★ POLECANE</span>':""}</span></a>
-    <div class="in"><a class="tt" href="${esc(i.url)}" target="_blank" rel="noopener">${hl(i.title)}</a><span class="dom">${esc(d)}</span>${i.desc?`<p class="d">${hl(i.desc)}</p>`:""}${i.tags.length?`<div class="tags">${i.tags.map(t=>`<span class="tag" data-t="${esc(t)}">#${esc(t)}</span>`).join("")}</div>`:""}</div></article>`;
+const d=host(i.url),img=PREVIEW?PREVIEW.replace("{url}",encodeURIComponent(i.url)):"";
+return `<article class="tile ${i.pol?"pol":""}"><a class="shot" href="${esc(i.url)}" target="_blank" rel="noopener" aria-label="${esc(i.title)}" style="background:hsl(${hue(d)} 45% 55% / .22)"><span class="ph">${esc((d[0]||"•").toUpperCase())}</span>${img?`<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:""}<span class="bw">${i.nowy?'<span class="b n">NOWE</span>':""}${i.pol?'<span class="b p">★ POLECANE</span>':""}</span></a>
+   <div class="in"><a class="tt" href="${esc(i.url)}" target="_blank" rel="noopener">${hl(i.title)}</a><span class="dom">${esc(d)}</span>${i.desc?`<p class="d">${hl(i.desc)}</p>`:""}${i.tags.length?`<div class="tags">${i.tags.map(t=>`<span class="tag" data-t="${esc(t)}">#${esc(t)}</span>`).join("")}</div>`:""}</div></article>`;
 }
 function chips(el,list,key,all){
-  el.innerHTML=[`<button class="chip ${S[key]?"":"on"}" data-k="${key}" data-v="">${all}</button>`]
-    .concat(list.map(([v,n])=>`<button class="chip ${S[key]===v?"on":""}" data-k="${key}" data-v="${esc(v)}">${esc(key==="tag"?"#"+v:v)} · ${n}</button>`)).join("");
+el.innerHTML=[`<button class="chip ${S[key]?"":"on"}" data-k="${key}" data-v="">${all}</button>`]
+.concat(list.map(([v,n])=>`<button class="chip ${S[key]===v?"on":""}" data-k="${key}" data-v="${esc(v)}">${esc(key==="tag"?"#"+v:v)} · ${n}</button>`)).join("");
 }
 function render(){
-  const all=secs.flatMap(s=>s.items);
-  const tc={};all.forEach(i=>i.tags.forEach(t=>tc[t]=(tc[t]||0)+1));
-  chips($("secs"),secs.map(s=>[s.name,s.items.length]),"sec","Wszystkie");
-  const LIM=30,te=Object.entries(tc);let shown=te;
-  if(!S.allTags&&te.length>LIM){const top=new Set(te.slice().sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"pl")).slice(0,LIM).map(x=>x[0]));if(S.tag)top.add(S.tag);shown=te.filter(x=>top.has(x[0]))}
-  chips($("tags"),shown.sort((a,b)=>a[0].localeCompare(b[0],"pl")),"tag","Wszystkie");
-  if(te.length>LIM)$("tags").insertAdjacentHTML("beforeend",`<button class="chip more" data-more="1">${S.allTags?"Pokaż mniej":"Pokaż wszystkie ("+te.length+")"}</button>`);
-  $("flags").innerHTML=`<button class="chip ${S.pol?"on":""}" data-f="pol">★ Polecane</button><button class="chip ${S.nowy?"on":""}" data-f="nowy">Nowe</button>`;
-  const q=S.q.trim().toLowerCase();
-  let n=0,html="";
-  for(const s of secs){
-    if(S.sec&&s.name!==S.sec)continue;
-    const its=s.items.filter(i=>(!S.pol||i.pol)&&(!S.nowy||i.nowy)&&(!S.tag||i.tags.includes(S.tag))&&(!q||(i.title+" "+i.desc+" "+i.tags.join(" ")+" "+host(i.url)).toLowerCase().includes(q)));
-    if(!its.length)continue; n+=its.length;
-    const cards=its.map(i=>S.view==="tiles"?tile(i):`<article class="card ${i.pol?"pol":""}"><div class="top">
-      ${i.nowy?'<span class="b n">NOWE</span>':""}${i.pol?'<span class="b p">★ POLECANE</span>':""}
-      <a class="t" href="${esc(i.url)}" target="_blank" rel="noopener">${hl(i.title)}</a><span class="dom">${esc(host(i.url))}</span></div>
-      ${i.desc?`<p class="d">${hl(i.desc)}</p>`:""}
-      ${i.tags.length?`<div class="tags">${i.tags.map(t=>`<span class="tag" data-t="${esc(t)}">#${esc(t)}</span>`).join("")}</div>`:""}</article>`).join("");
-    html+=`<h2>${esc(s.name)}</h2>`+(S.view==="tiles"?`<div class="grid">${cards}</div>`:cards);
-  }
-  $("count").textContent=n?`Pozycji: ${n} z ${all.length}`:"Brak wyników.";
-  $("out").innerHTML=html;
+const all=secs.flatMap(s=>s.items);
+const tc={};all.forEach(i=>i.tags.forEach(t=>tc[t]=(tc[t]||0)+1));
+chips($("secs"),secs.map(s=>[s.name,s.items.length]),"sec","Wszystkie");
+const LIM=30,te=Object.entries(tc);let shown=te;
+if(!S.allTags&&te.length>LIM){const top=new Set(te.slice().sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],"pl")).slice(0,LIM).map(x=>x[0]));if(S.tag)top.add(S.tag);shown=te.filter(x=>top.has(x[0]))}
+chips($("tags"),shown.sort((a,b)=>a[0].localeCompare(b[0],"pl")),"tag","Wszystkie");
+if(te.length>LIM)$("tags").insertAdjacentHTML("beforeend",`<button class="chip more" data-more="1">${S.allTags?"Pokaż mniej":"Pokaż wszystkie ("+te.length+")"}</button>`);
+$("flags").innerHTML=`<button class="chip ${S.pol?"on":""}" data-f="pol">★ Polecane</button><button class="chip ${S.nowy?"on":""}" data-f="nowy">Nowe</button>`;
+const q=S.q.trim().toLowerCase();
+let n=0,html="";
+for(const s of secs){
+if(S.sec&&s.name!==S.sec)continue;
+const its=s.items.filter(i=>(!S.pol||i.pol)&&(!S.nowy||i.nowy)&&(!S.tag||i.tags.includes(S.tag))&&(!q||(i.title+" "+i.desc+" "+i.tags.join(" ")+" "+host(i.url)).toLowerCase().includes(q)));
+if(!its.length)continue; n+=its.length;
+const cards=its.map(i=>S.view==="tiles"?tile(i):`<article class="card ${i.pol?"pol":""}"><div class="top">
+     ${i.nowy?'<span class="b n">NOWE</span>':""}${i.pol?'<span class="b p">★ POLECANE</span>':""}
+     <a class="t" href="${esc(i.url)}" target="_blank" rel="noopener">${hl(i.title)}</a><span class="dom">${esc(host(i.url))}</span></div>
+     ${i.desc?`<p class="d">${hl(i.desc)}</p>`:""}
+     ${i.tags.length?`<div class="tags">${i.tags.map(t=>`<span class="tag" data-t="${esc(t)}">#${esc(t)}</span>`).join("")}</div>`:""}</article>`).join("");
+html+=`<h2>${esc(s.name)}</h2>`+(S.view==="tiles"?`<div class="grid">${cards}</div>`:cards);
+}
+$("count").textContent=n?`Pozycji: ${n} z ${all.length}`:"Brak wyników.";
+$("out").innerHTML=html;
 }
 document.addEventListener("click",e=>{
-  const c=e.target.closest(".chip"),t=e.target.closest(".tag");
-    if(c){ if(c.dataset.more)S.allTags=!S.allTags; else if(c.dataset.f)S[c.dataset.f]=!S[c.dataset.f]; else S[c.dataset.k]=S[c.dataset.k]===c.dataset.v?"":c.dataset.v; render(); }
-  else if(t){S.tag=t.dataset.t;render();scrollTo({top:0,behavior:"smooth"})}
+const c=e.target.closest(".chip"),t=e.target.closest(".tag");
+if(c){ if(c.dataset.more)S.allTags=!S.allTags; else if(c.dataset.f)S[c.dataset.f]=!S[c.dataset.f]; else S[c.dataset.k]=S[c.dataset.k]===c.dataset.v?"":c.dataset.v; render(); }
+else if(t){S.tag=t.dataset.t;render();scrollTo({top:0,behavior:"smooth"})}
 });
 $("q").addEventListener("input",e=>{S.q=e.target.value;render()});
 document.querySelector(".seg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;S.view=b.dataset.view;document.querySelectorAll(".seg button").forEach(x=>x.classList.toggle("on",x===b));render()});
 document.addEventListener("error",e=>{if(e.target.tagName==="IMG")e.target.remove()},true);
 $("load").onclick=()=>{const v=$("paste").value;if(v.trim()){secs=parse(v);$("status").textContent="Dane wklejone ręcznie.";render()}};
 async function init(){
-  if(!DATA_URL){secs=parse(SAMPLE);}$("status").textContent=DATA_URL?"Ładuję dane z dokumentu…":"Podgląd na próbce danych (sekcja „Trendy / forecasting”).";
-  render();
-  if(DATA_URL){
-    try{const r=await fetch(DATA_URL);const t=await r.text();const p=parse(t);
-      if(p.length){secs=p;$("status").textContent="Dane na żywo z dokumentu.";render()}}
-    catch(e){secs=parse(SAMPLE);render();$("status").textContent="Nie udało się pobrać danych na żywo – pokazuję próbkę."}
-  }
+if(!DATA_URL){secs=parse(SAMPLE);}$("status").textContent=DATA_URL?"Ładuję dane z dokumentu…":"Podgląd na próbce danych (sekcja „Trendy / forecasting”).";
+render();
+if(DATA_URL){
+try{const r=await fetch(DATA_URL);const t=await r.text();const p=parse(t);
+if(p.length){secs=p;$("status").textContent="Dane na żywo z dokumentu.";render()}}
+catch(e){secs=parse(SAMPLE);render();$("status").textContent="Nie udało się pobrać danych na żywo – pokazuję próbkę."}
+}
 }
 init();
 </script></body></html>
